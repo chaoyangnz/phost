@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- Author: 杨超 <ychao@bankcomm.com> -->
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="org.inframesh.phost.dao">
+	 
+	 <!-- 自动映射时，进行了映射缓存.需要强制重新映射 -->
+	 <select id="queryProjectByUserId" remapResults="true" parameterClass="mapdto" resultClass="mapdto">
+	 	SELECT b.* FROM PROJECT_MEMBER a, PROJECT_META b where a.PROJECT_ID= b.PROJECT_ID AND a.USER_ID=#userId#
+	 	<isNotEmpty property="role" prepend="AND">
+	 		a.ROLE=#role#
+	 	</isNotEmpty>	 
+	 </select>
+	 
+	 
+	 <!-- 自动映射时，进行了映射缓存.需要强制重新映射 -->
+	 <select id="queryUserByProjectName" remapResults="true" parameterClass="mapdto" resultClass="mapdto">
+	 	SELECT b.* FROM PROJECT_MEMBER a, USER b, PROJECT_META c where a.USER_ID= b.USER_ID AND a.PROJECT_ID=c.PROJECT_ID AND c.NAME=#projectName#
+	 	<isNotEmpty property="role" prepend="AND">
+	 		a.ROLE=#role#
+	 	</isNotEmpty>	 
+	 </select>
+	 
+	 
+
+</sqlMap>

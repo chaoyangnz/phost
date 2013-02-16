@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="sqlObjectAlias">
+
+	<!-- 不建议使用全局Alias，要写Alias建议在各自的配置文件写 -->
+	<typeAlias alias="mapdto"  type="org.inframesh.phost.model.MapDTO" />
+	
+</sqlMap>

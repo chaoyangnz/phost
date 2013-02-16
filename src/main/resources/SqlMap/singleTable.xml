@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- Author: 杨超 <ychao@bankcomm.com> -->
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="org.inframesh.phost.dao.SingleTableDao">
+	 
+	 <!-- 自动映射时，进行了映射缓存.需要强制重新映射 -->
+	 <select id="select" remapResults="true" parameterClass="mapdto" resultClass="mapdto">
+	 	SELECT *
+	 	FROM $TABLE_NAME$ 
+	 	WHERE $PK_NAME$=#PK_VALUE#	 
+	 </select>
+	 
+	 <select id="selectByColumn" remapResults="true" parameterClass="mapdto" resultClass="mapdto">
+	 	SELECT *
+	 	FROM $TABLE_NAME$ 
+	 	WHERE $WHERE_SQL$   
+	 </select>
+	 
+	 <!-- 删除 -->
+	 <delete id="delete">
+	 	DELETE FROM $TABLE_NAME$ 
+	 	WHERE $PK_NAME$=#PK_VALUE#
+	 </delete>
+	 
+	 <delete id="deleteByColumn">
+	 	DELETE FROM $TABLE_NAME$ 
+	 	WHERE $WHERE_SQL$
+	 </delete>
+	 	 
+	 <!-- 更新 -->
+	 <update id="update" parameterClass="mapdto">
+		UPDATE $TABLE_NAME$ 
+		SET $SET_SQL$ 
+		WHERE $PK_NAME$=#PK_VALUE#
+	 </update>
+	 
+	 <update id="updateByColumn" parameterClass="mapdto">
+		UPDATE $TABLE_NAME$ 
+		SET $SET_SQL$ 
+		WHERE $WHERE_SQL$
+	 </update>
+
+	<!-- 插入一条记录 -->
+	<insert id="insert" parameterClass="mapdto">
+		INSERT INTO 
+		$TABLE_NAME$ $VALUES_SQL$
+		
+	   <!--  插入后获得主键 -->
+	   <selectKey resultClass="long" keyProperty="pk">
+       		VALUES IDENTITY_VAL_LOCAL()
+       </selectKey>
+   </insert>
+   
+   <!-- 拷贝记录到副表 -->
+   <insert id="copy" parameterClass="mapdto">
+   		insert into $TABLE_NAME_COPY$ 
+   		select * from $TABLE_NAME$ where $PK_NAME$=#PK_VALUE#
+   </insert>
+   
+   <!-- 合并副本到正本 -->
+   <statement id="merge" parameterClass="mapdto">
+   		MERGE INTO $TABLE_NAME$ a
+		USING (select * from $TABLE_NAME_COPY$ where $PK_NAME$=#PK_VALUE#) b
+		ON (a.$PK_NAME$ = b.$PK_NAME$)
+		WHEN MATCHED THEN
+		UPDATE
+		SET $UPDATE_SET_SQL$
+		WHEN NOT MATCHED THEN
+		 INSERT $INSERT_VALUES_SQL$
+   </statement>
+
+</sqlMap>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMapConfig      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map Config 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-config-2.dtd">
+
+<sqlMapConfig>
+	<settings maxRequests="256" maxSessions="64" maxTransactions="16" enhancementEnabled="true" useStatementNamespaces="true"/>
+
+	<sqlMap resource="SqlMap/cacheModelConfig.xml" />
+	<sqlMap resource="SqlMap/sqlObjectAlias.xml" />
+	
+	<sqlMap resource="SqlMap/else.xml" />
+
+	<!-- 此文件为总配置文件，不需要写入 -->
+
+	<!-- 公用DAO配置文件 -->
+	<sqlMap resource="SqlMap/singleTable.xml"/>
+	
+	<!-- 模块DAO配置文件 -->
+	<!-- <sqlMap resource="SqlMap/alert/.."/> -->
+
+</sqlMapConfig>

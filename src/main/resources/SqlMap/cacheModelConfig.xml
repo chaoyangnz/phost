@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="cacheModel">
+	
+	<!--  
+	<cacheModel type="LRU" id="ConfigCacheModel" readOnly="true" serialize="false">
+		<flushInterval hours="24" /> 多长时间刷新一次,参数有hours,minutes,seconds,milliseconds
+		<flushOnExecute statement="insertOneStudent" />  在执行那些statement时刷新缓存
+		<property name="cahce-size" value="1000"/>
+		
+			<flushOnExecute statement="DeleteStudent" />
+			<flushOnExecute statement="UpdateStudent" />
+		
+	</cacheModel>
+	-->
+</sqlMap>

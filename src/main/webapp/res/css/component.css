@@ -1,0 +1,188 @@
+@charset "utf-8";
+/* CSS Document */
+
+div {
+ word-wrap:break-word;
+}
+
+.basic-bg {
+  background: #e5ecf9;
+}
+
+.highlight-bg {
+  background: #c3d9ff;
+}
+
+.featured-bg {
+  background: #ddf8cc;
+}
+
+.indent {
+	margin-left: 2em;
+}
+
+.section-title {
+	background-color: #e5ecf9;
+	border-top: blue solid 1px;
+	font-size: 1.3em;
+	font-weight: bold;
+	line-height: 1.3em;
+}
+
+
+/**----------round corner---------------------------*/
+.round1 {
+  border-left: 1px solid #fff;
+  border-right: 1px solid #fff;
+}
+
+.round2 {
+  border-left: 2px solid #fff;
+  border-right: 2px solid #fff;
+}
+
+.round4 {
+  border-left: 4px solid #fff;
+  border-right: 4px solid #fff;
+}
+
+.lround1 {
+  border-left: 1px solid #fff;
+}
+
+.lround2 {
+  border-left: 2px solid #fff;
+}
+
+.lround4 {
+  border-left: 4px solid #fff;
+}
+
+.rround1 {
+  border-right: 1px solid #fff;
+}
+
+.rround2 {
+  border-right: 2px solid #fff;
+}
+
+.rround4 {
+  border-right: 4px solid #fff;
+}
+
+.round1, .round2, .round4,
+.lround1, .lround2, .lround4,
+.rround1, .rround2, .rround4 
+{
+  font-size: 0;
+  margin: 0;
+  padding: 0;
+  height: 1px;
+}
+
+/**----------------component commons------------------------*/
+td.seperator {
+   padding: 0 4px;
+}
+
+td.spacer {
+   width: 100%;
+}
+
+div.content-box {
+  margin: 0;
+  padding: 0px 13px;
+}
+
+
+div.vgap {
+	clear: both;
+	margin-top: 10px;
+}
+
+div.hgap {
+	margin-left: 10px;
+}
+
+/*------------------layout-----------------------------------*/
+div.vbox > div {
+	width: 100%;
+}
+
+div.hbox > div {
+	float: left;
+}
+
+/* not for IE*/
+div.hbox div:last-child {
+	float: right;
+	margin-right: 0px;
+}
+
+div.clearfix {
+	clear: both;
+}
+
+/**----------------TAB Navigation---------------------------*/
+table.tabfolder th {
+  cursor:pointer;
+  text-align:center;
+  font-weight:bold;
+}
+
+table.tabfolder th a:link,
+table.tabfolder th a:active,
+table.tabfolder th a:hover,
+table.tabfolder th a:visited { 
+	text-decoration:none; color: black; 
+}
+
+/* default is inactive */
+table.tabfolder th {
+  background: #e5ecf9;
+}
+
+table.tabfolder th.active {
+  background: #c3d9ff;
+}
+
+/**--------------------bread crumb-------------------------------*/
+table.breadcrumb {
+	background-color: #c3d9ff;
+}
+
+/**-------------------data grid----------------------------------*/
+table.datagrid thead td, table.datagrid tfoot td {
+	background-color: #c3d9ff;
+	text-align: right;
+	font-weight: bold;
+}
+
+/*for column header*/
+table.datagrid thead th {
+	background-color: #e5ecf9;
+	text-align: left;
+	padding-left: 5px;
+	border-left: #CCCCCC solid 1px;
+	color: #0000FF;
+}
+
+
+table.datagrid td.first-col, table.datagrid th.first-col {
+	border-left: #c3d9ff solid 1px; 
+}
+
+table.datagrid td.last-col, table.datagrid th.last-col {
+	border-right: #c3d9ff solid 1px;
+}
+
+table.datagrid tbody tr td {
+	border-bottom: #CCCCCC solid 1px;
+	text-align: left;
+	padding-left: 5px;
+}
+
+
+/**-----------------------------------------------------------------*/
+
+
